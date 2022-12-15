@@ -20,7 +20,7 @@ jobs:
         with:
           owner: madhum-py
           repo: tactical_test1
-          github_token: ${{ secrets.REPO_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           workflow_file_name: main.yml
           ref: main
           inputs: '{"COMMON_VERSION_201912":"${{env.PATCH_VERSION_201912}}","COMMON_VERSION_202210":"${{env.PATCH_VERSION_202210}}"}'
