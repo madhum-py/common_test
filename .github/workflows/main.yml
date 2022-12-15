@@ -15,12 +15,12 @@ jobs:
         run: |
           sleep 120
       
-      - name: Triggering one-off patch build
-        uses: convictional/trigger-workflow-and-wait@v1.3.0
-        with:
-          owner: madhum-py
-          repo: tactical_test1
-          github_token: ${{ secrets.REPO_TOKEN }}
-          workflow_file_name: main.yml
-          ref: main
-          inputs: '{"COMMON_VERSION_201912":"${{env.PATCH_VERSION_201912}}","COMMON_VERSION_202210":"${{env.PATCH_VERSION_202210}}"}'
+      #- name: Triggering one-off patch build
+      #  uses: convictional/trigger-workflow-and-wait@v1.3.0
+      #  with:
+      #    owner: madhum-py
+      #    repo: tactical_test1
+      #    github_token: ${{ secrets.REPO_TOKEN }}
+      #    workflow_file_name: main.yml
+      #    ref: main
+      #    inputs: '{"COMMON_VERSION_201912":"${{env.PATCH_VERSION_201912}}","COMMON_VERSION_202210":"${{env.PATCH_VERSION_202210}}"}'
