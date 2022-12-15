@@ -18,7 +18,7 @@ jobs:
       - name: Triggering one-off patch build
         uses: convictional/trigger-workflow-and-wait@v1.3.0
         with:
-          owner: Marripelli-Madhu_ghub
+          owner: madhum-py
           repo: tactical_test1
           github_token: ${{ secrets.GITHUB_TOKEN }}
           workflow_file_name: main.yml
