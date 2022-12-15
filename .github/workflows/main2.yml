@@ -1,0 +1,26 @@
+name: Test Common 2
+
+on:
+  workflow_dispatch:
+
+env:
+  PATCH_VERSION_201912: 2019.1.2.0
+  PATCH_VERSION_202210: 2022.1.0.0
+ 
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for 60 Seconds
+        run: |
+          sleep 60
+      
+      - name: Triggering Tactical Workflow
+        uses: convictional/trigger-workflow-and-wait@v1.3.0
+        with:
+          owner: madhum-py
+          repo: tactical_test1
+          github_token: ${{ secrets.REPO_TOKEN }}
+          workflow_file_name: main2.yml
+          ref: main
+          inputs: '{"COMMON_VERSION_201912":"${{env.PATCH_VERSION_201912}}","COMMON_VERSION_202210":"${{env.PATCH_VERSION_202210}}","TRIGGERED_BY_COMMON":"true"}'
