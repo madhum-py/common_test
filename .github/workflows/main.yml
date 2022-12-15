@@ -1,0 +1,26 @@
+name: Test Common
+
+on:
+  workflow_dispatch:
+
+env:
+  PATCH_VERSION_201912: 2019.1.2.0
+  PATCH_VERSION_202210: 2022.1.0.0
+ 
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for 5 Seconds
+        run: |
+          sleep 5
+      
+      - name: Triggering one-off patch build
+        uses: convictional/trigger-workflow-and-wait@v1.3.0
+        with:
+          owner: Marripelli-Madhu_ghub
+          repo: tactical_test1
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          workflow_file_name: main.yml
+          ref: main
+          inputs: '{"COMMON_VERSION_201912":"${{env.PATCH_VERSION_201912}}","COMMON_VERSION_202210":"${{env.PATCH_VERSION_202210}}"}'
